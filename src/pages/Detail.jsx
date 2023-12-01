@@ -16,7 +16,7 @@ export default function Detail() {
   const navigate = useNavigate();
   const { id } = useParams();
   const { avatar, nickname, createdAt, writedTo, content } = letters.find(
-    (letter) => letter.id === id
+    (letter) => letter.id === id,
   );
 
   const onDeleteBtn = () => {

@@ -1,5 +1,5 @@
-import Tabs from "./Tabs";
 import styled from "styled-components";
+import Tabs from "./Tabs";
 
 export default function Header() {
   return (
