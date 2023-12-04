@@ -1,5 +1,31 @@
 {
-  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "profile": { "name": "typicode" }
+  "letters": [
+    {
+      "id": "392a1779-c1a0-4e70-b3b7-da28367fd7c9",
+      "nickname": "reactchoi",
+      "content": "ㅎㅎ",
+      "avatar": null,
+      "writedTo": "카리나",
+      "createdAt": "2023-12-02T23:28:10.694Z",
+      "userId": "reactchoi"
+    },
+    {
+      "id": "edab00a3-8f54-473b-9b34-c93b8ea83f9c",
+      "nickname": "reactchoi",
+      "content": "ㅎㅎ",
+      "avatar": null,
+      "writedTo": "카리나",
+      "createdAt": "2023-12-02T23:40:24.373Z",
+      "userId": "reactchoi"
+    },
+    {
+      "id": "d4e698d2-d0ec-40b6-95a0-1fdc17196b16",
+      "nickname": "reactchoi",
+      "content": "최신순으로 가져오기?",
+      "avatar": null,
+      "writedTo": "카리나",
+      "createdAt": "2023-12-02T23:46:04.565Z",
+      "userId": "reactchoi"
+    }
+  ]
 }

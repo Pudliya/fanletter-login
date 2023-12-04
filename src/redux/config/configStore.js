@@ -1,18 +1,16 @@
-import { createStore, combineReducers } from "redux";
-import letters from "redux/modules/letters";
-import member from "redux/modules/member";
-import { devToolsEnhancer } from "redux-devtools-extension";
 import { configureStore } from "@reduxjs/toolkit";
-
-// const rootReducer = combineReducers({ letters, member });
-
-// const store = createStore(rootReducer, devToolsEnhancer());
+import lettersReducer, { fetchLetters } from "redux/modules/letters";
+import memberReducer from "redux/modules/member";
+import authReducer from "../modules/authSlice";
 
 const store = configureStore({
   reducer: {
-    letters,
-    member,
+    letters: lettersReducer,
+    member: memberReducer,
+    auth: authReducer,
   },
 });
+
+store.dispatch(fetchLetters());
 
 export default store;

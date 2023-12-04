@@ -1,21 +1,25 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addLetter } from "redux/modules/letters";
 import styled from "styled-components";
 import { v4 as uuid } from "uuid";
 import Button from "./common/Button";
-import { useDispatch } from "react-redux";
-import { addLetter } from "redux/modules/letters";
 
 export default function AddForm() {
   // const { setLetters } = useContext(LetterContext);
   const dispatch = useDispatch();
 
-  const [nickname, setNickname] = useState("");
+  const {
+    user: { nickname },
+  } = useSelector((state) => state.auth);
   const [content, setContent] = useState("");
   const [member, setMember] = useState("카리나");
 
   const onAddLetter = (event) => {
     event.preventDefault();
-    if (!nickname || !content) return alert("닉네임과 내용은 필수값입니다.");
+    if (!content) return alert("내용은 필수값입니다.");
+
+    const userId = localStorage.getItem("userId");
 
     const newLetter = {
       id: uuid(),
@@ -24,10 +28,10 @@ export default function AddForm() {
       avatar: null,
       writedTo: member,
       createdAt: new Date(),
+      userId,
     };
 
     dispatch(addLetter(newLetter));
-    setNickname("");
     setContent("");
   };
 
@@ -35,12 +39,7 @@ export default function AddForm() {
     <Form onSubmit={onAddLetter}>
       <InputWrapper>
         <label>닉네임:</label>
-        <input
-          onChange={(event) => setNickname(event.target.value)}
-          value={nickname}
-          placeholder="최대 20글자까지 작성할 수 있습니다."
-          maxLength={20}
-        />
+        <span>{nickname}</span>
       </InputWrapper>
       <InputWrapper>
         <label>내용:</label>
@@ -91,6 +90,10 @@ const InputWrapper = styled.div`
   & textarea {
     resize: none;
     height: 80px;
+  }
+  & span {
+    width: 100%;
+    color: yellow;
   }
 `;
 

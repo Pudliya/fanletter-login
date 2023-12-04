@@ -1,22 +1,22 @@
 import Avatar from "components/common/Avatar";
 import Button from "components/common/Button";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { deleteLetter, editLetter } from "redux/modules/letters";
 import styled from "styled-components";
 import { getFormattedDate } from "util/date";
-import { useSelector, useDispatch } from "react-redux";
-import { deleteLetter, editLetter } from "redux/modules/letters";
 
 export default function Detail() {
   const dispatch = useDispatch();
-  const letters = useSelector((state) => state.letters);
+  const letters = useSelector((state) => state.letters.letters);
 
   const [isEditing, setIsEditing] = useState(false);
   const [editingText, setEditingText] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
   const { avatar, nickname, createdAt, writedTo, content } = letters.find(
-    (letter) => letter.id === id,
+    (letter) => letter.id === id
   );
 
   const onDeleteBtn = () => {

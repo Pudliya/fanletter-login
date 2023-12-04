@@ -1,7 +1,5 @@
-import React from "react";
-
 function Profile() {
-  return <div>Profile</div>;
+  return <div>살려주세요</div>;
 }
 
 export default Profile;

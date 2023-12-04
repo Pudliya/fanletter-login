@@ -1,13 +1,13 @@
-import styled from "styled-components";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
 import LetterCard from "./LetterCard";
 
 export default function LetterList() {
   const activeMember = useSelector((state) => state.member);
-  const letters = useSelector((state) => state.letters);
+  const letters = useSelector((state) => state.letters.letters);
 
   const filteredLetters = letters.filter(
-    (letter) => letter.writedTo === activeMember,
+    (letter) => letter.writedTo === activeMember
   );
   return (
     <ListWrapper>
